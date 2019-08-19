@@ -1,6 +1,15 @@
 const express=require("express");
 const path=require("path");
 
+var mongoose=require("mongoose");
+var url="mongodb://localhost/library";
+mongoose.connect(url,function(err){
+    if(err) throw err;
+
+    else
+    console.log("DB CONNECTED");
+})
+
 var app=express();
 app.use(express.static(path.join(__dirname,"/public")));
 
