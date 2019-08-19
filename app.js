@@ -7,28 +7,16 @@ app.use(express.static(path.join(__dirname,"/public")));
 var bookrouter=require('./routes/bookrouter');
 app.use("/books",bookrouter);
 
+var authorrouter=require('./routes/authorrouter');
+app.use("/authors",authorrouter);
+
 app.set("views","./src/views");
 app.set("view engine","ejs");
 
-var author_arr=[{
-    name:"abc",
-    bnames:"bname1",
-    price:"120"
-},
-{
-    name:"bcd",
-    bnames:"bname2",
-    price:"220"
-},
-{
-    name:"cde",
-    bnames:"bname3",
-    price:"320"
-}];
 
 
 app.get("/",function(req,res){
-    res.render("index",{pagetitle:"Library",nav:[{link:"books",title:"Books"},{link:"authors",title:"Authors"}]});
+    res.render("index",{pagetitle:"Library",nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"},{link:"/signup",title:"SIGN UP"},{link:"/login",title:"LOGIN"},{link:"/addbooks",title:"ADD BOOKS"}]});
 })
 
 /*app.get("/books",function(req,res){
@@ -43,12 +31,12 @@ app.get("/books/:id",function(req,res){
     
 })
                         this is now handled by bookrouter
-*/  
+
 
 app.get("/authors",function(req,res){
-    res.render("author",{authorarray:author_arr});
+    res.render("author",{pagetitle:"Library",nav:[{link:"/books",title:"Books"},{link:"/authors",title:"Authors"}],authorarray:author_arr});
 })
-
+*/
 app.listen(8090,function(req,res){
     console.log("Server is Up !!");
     

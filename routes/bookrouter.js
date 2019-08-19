@@ -108,11 +108,11 @@ var book_arr=[{
 ];
 
 router.get("/",function(req,res){
-    res.render("books",{pagetitle:"Library",nav:[{link:"books",title:"Books"},{link:"authors",title:"Authors"}],booksarray:book_arr});
+    res.render("books",{pagetitle:"Library",nav:[{link:"books",title:"Books"},{link:"authors",title:"Authors"},{link:"/signup",title:"SIGN UP"},{link:"/login",title:"LOGIN"},{link:"/addbooks",title:"ADD BOOKS"}],booksarray:book_arr});
 })
 router.get("/:id",function(req,res){
    
-    res.render("singlebook",{pagetitle:"Library",nav:[{link:"books",title:"Books"},{link:"authors",title:"Authors"}],book:book_arr[req.params.id]});
+    res.render("singlebook",{pagetitle:"Library",nav:[{link:"books",title:"Books"},{link:"authors",title:"Authors"},{link:"/signup",title:"SIGN UP"},{link:"/login",title:"LOGIN"},{link:"/addbooks",title:"ADD BOOKS"}],book:book_arr[req.params.id]});
     var temp=req.params.id;
     console.log(temp);
    
