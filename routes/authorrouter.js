@@ -30,6 +30,13 @@ router.get("/",function(req,res){
                     {
                         link:"/addbooks",title:"ADD BOOKS"
                     }
+                    ,
+                    {
+                        link:"/delete",title:"DELETE BOOKS"
+                    },
+                    {
+                        link:"/update",title:"UPDATE BOOKS"
+                    }
                     ],
                     authorarray:result});
        }
